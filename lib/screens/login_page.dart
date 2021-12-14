@@ -20,8 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Column(
         children: [
-        Image.asset("assets/images/2.png", height: 400,
-            width: 500),
+        Image.asset("assets/images/2.png", height: 350,
+            width: 400),
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40),
             child: TextField(
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 40.0, right: 40),
@@ -55,17 +55,22 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: 15,),
           ElevatedButton(onPressed: (){}, child: Text("Login")),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Don't have account?"),
               GestureDetector(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (contex)=> Register()));
                 },
-                child: Text("Register"),
+                child: Text("Register",style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold),
+              )
               )
             ],
           )

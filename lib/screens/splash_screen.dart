@@ -19,9 +19,9 @@ class SplashScreen extends StatelessWidget {
             duration: Duration(seconds: 5000),
               child: Column(
                 children: [
-                  Image.asset("assets/images/1.png",
-                  height: 400,
-                  width: 500,),
+                  Image.asset("assets/images/logistics.png",
+                  height: 300,
+                  width: 400,),
                   SizedBox(height: 8,),
                   Text("Welcome to E-Mart",
                   style: large,
@@ -37,7 +37,7 @@ class SplashScreen extends StatelessWidget {
         children: [
           Text("Made By",style: small,),
           Icon(Icons.favorite,color: Colors.red,),
-          Text("Batch 56",style: small,)
+          Text("OsmanGaohar",style: small,)
         ],
       ),
     );
