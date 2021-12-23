@@ -1,17 +1,30 @@
+import 'package:e_mart/model/model.dart';
 import 'package:e_mart/utils/text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'deatils_page.dart';
 
 class HomePage extends StatelessWidget {
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List <String>image =[
+      "assets/images/1.png",
+      "assets/images/2.png",
+      "assets/images/3.png",
+      "assets/images/4.png",
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text('E-mart'),
         actions: [
-          Icon(Icons.yard)
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Icon(Icons.yard, size: 40,),
+          )
         ],
       ),
       body: Padding(
@@ -131,6 +144,54 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(height: 10,),
+            Container(
+              height: 190,
+              color: Colors.grey,
+              child: GridView.builder(
+                itemCount: product.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                  ),
+                  itemBuilder: (BuildContext contex, int index){
+                  return Container(
+                    height: 100,
+                    width: 100,
+                    color: Colors.indigo,
+                    // child: Image.asset(image[index], height: 50,width: 40,),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: Alignment.topRight,
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProdectDetails(product: product[index],)));
+                              },
+                              child: Container(
+                                height: 150,
+                                width: 180,
+                                color: Colors.teal,
+                                child: Image.asset(image[index], fit: BoxFit.cover,),
+                              ),
+                            ),
+                            Icon(Icons.favorite)
+                          ],
+                        ),
+                        SizedBox(height: 5,),
+                        Text("\$ 160", style: TextStyle(color: Colors.white),),
+                        SizedBox(height: 5,),
+                        ElevatedButton(onPressed: (){}, child: Text("Cart"))
+                      ],
+                    ),
+                  );
+                  }
+
+
+),
+            )
           ],
         ),
       ),
